@@ -17,7 +17,7 @@ public class Result
 
     private String resolvedQuery;
 
-    private Contexts[] contexts;
+    private String[] contexts;
 
     private Parameters parameters;
 
@@ -83,12 +83,12 @@ public class Result
         this.resolvedQuery = resolvedQuery;
     }
 
-    public Contexts[] getContexts ()
+    public String[] getContexts ()
     {
         return contexts;
     }
 
-    public void setContexts (Contexts[] contexts)
+    public void setContexts (String[] contexts)
     {
         this.contexts = contexts;
     }

@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.chatbox.bussiness.CheckCriterea;
+import com.chatbox.bussiness.TimeSheet;
 import com.chatbox.bussiness.API_AI_Responce;
 import com.chatbox.model.API_AI_Response_Mdl;
 import com.chatbox.model.Country;
@@ -21,6 +22,7 @@ import com.chatbox.model.Result;
 import com.chatbox.model.State;
 import com.chatbox.model.Messages;
 import com.chatbox.model.Fulfillment;
+import com.chatbox.model.Location;
 
 @Path("recruiter")
 public class RequestResponce {
@@ -34,6 +36,7 @@ public class RequestResponce {
 	@POST 
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getflxrecuiter(String outputJSON) throws IOException{
+		String str1="";
 		System.out.println("Request recieved");
 		API_AI_Responce response = new API_AI_Responce();
 
@@ -48,21 +51,27 @@ public class RequestResponce {
 		Parameters params=rs.getParameters();
 
 		Parameters p=rs.getParameters();
-		String region=p.getRegion();
-		String country=p.getCountry();
-		String state=p.getState();
-		String category=p.getJob_category();
-		
-		CheckCriterea cc=new CheckCriterea();
-	    
-		String str1 =cc.checkCriterea(region, country, state, category);
-		/*p.setStarttime(null);
-		p.setEndtime(null);
-		
-		Fulfillment f=rs.getFulfillment();
-		f.setDisplayText(str1);
-		f.setSpeech(str1);
-		f.setSource("policyWS");*/
+		try{
+			params=rs.getParameters();
+			String name = params.getUsername();
+			String empid = params.getEmpid();
+			String date=params.getDate();
+			String t_in=params.getIntime();
+			String t_out=params.getOuttime();
+			String task=params.getTask();
+			
+			Location loc=params.getLocation();
+			String location=loc.getCity();
+			
+			TimeSheet cobj=new TimeSheet();
+			str1=cobj.check_valid(empid,name,location,date,t_in,t_out,task);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+
 		
 		Response_Mdl res=new Response_Mdl();
 		res.setSource("policyWS");

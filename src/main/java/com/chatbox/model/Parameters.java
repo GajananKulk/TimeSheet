@@ -4,81 +4,93 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Parameters {
-	private String skills;
+	 private String empid;
 
-    private String job_category;
+	 private String username;
 
-    private String region;
+	 private Location location;
 
-    private String state;
+	 private String task;
 
-    private String experience;
+	 private String date;
 
-    private String country;
+	 private String intime;
 
-    public String getSkills ()
-    {
-        return skills;
-    }
+	 private String outtime;
 
-    public void setSkills (String skills)
-    {
-        this.skills = skills;
-    }
+	 public String getEmpid ()
+	 {
+	     return empid;
+	 }
 
-    public String getJob_category ()
-    {
-        return job_category;
-    }
+	 public void setEmpid (String empid)
+	 {
+	     this.empid = empid;
+	 }
 
-    public void setJob_category (String job_category)
-    {
-        this.job_category = job_category;
-    }
+	 public String getUsername ()
+	 {
+	     return username;
+	 }
 
-    public String getRegion ()
-    {
-        return region;
-    }
+	 public void setUsername (String username)
+	 {
+	     this.username = username;
+	 }
 
-    public void setRegion (String region)
-    {
-        this.region = region;
-    }
+	 public Location getLocation ()
+	 {
+	     return location;
+	 }
 
-    public String getState ()
-    {
-        return state;
-    }
+	 public void setLocation (Location location)
+	 {
+	     this.location = location;
+	 }
 
-    public void setState (String state)
-    {
-        this.state = state;
-    }
+	 public String getTask ()
+	 {
+	     return task;
+	 }
 
-    public String getExperience ()
-    {
-        return experience;
-    }
+	 public void setTask (String task)
+	 {
+	     this.task = task;
+	 }
 
-    public void setExperience (String experience)
-    {
-        this.experience = experience;
-    }
+	 public String getDate ()
+	 {
+	     return date;
+	 }
 
-    public String getCountry ()
-    {
-        return country;
-    }
+	 public void setDate (String date)
+	 {
+	     this.date = date;
+	 }
 
-    public void setCountry (String country)
-    {
-        this.country = country;
-    }
+	 public String getIntime ()
+	 {
+	     return intime;
+	 }
 
-    @Override
-    public String toString()
-    {
-        return "ClassPojo [skills = "+skills+", job_category = "+job_category+", Region = "+region+", state = "+state+", experience = "+experience+", country = "+country+"]";
-    }
+	 public void setIntime (String intime)
+	 {
+	     this.intime = intime;
+	 }
+
+	 public String getOuttime ()
+	 {
+	     return outtime;
+	 }
+
+	 public void setOuttime (String outtime)
+	 {
+	     this.outtime = outtime;
+	 }
+
+	 @Override
+	 public String toString()
+	 {
+	     return "ClassPojo [empid = "+empid+", username = "+username+", location = "+location+", task = "+task+", date = "+date+", intime = "+intime+", outtime = "+outtime+"]";
+	 }
 }
